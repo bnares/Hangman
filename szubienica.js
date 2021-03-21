@@ -5,6 +5,7 @@ haslo = haslo.toUpperCase();
 
 var haslo1 = haslo.length;
 var haslo2="";
+var ile_skuch = 0;
 
 for(i =0; i<haslo1; i++)
 {
@@ -133,8 +134,26 @@ function sprawdz(numer)
 		document.getElementById(element).style.color = "#C00000";
 		document.getElementById(element).style.border = "3px solid #C00000";
 		document.getElementById(element).style.cursor = "default";
+		
+		document.getElementById(element).setAttribute("onclick",";");
+		
+		//skucha
+		
+		ile_skuch++;
+		var obraz = 'img/s'+ ile_skuch+'.jpg';
+		document.getElementById("szubienica").innerHTML = '<img src ="'+obraz+'" alt = ""/>'
 	}
 	
+	//wygrana
+	if(haslo == haslo2)
+	{
+		document.getElementById("alfabet").innerHTML = 'Tak jest! podano prawidłowe haslo:'+haslo+'</br></br><span class = "reset" onclick = "location.reload()"> Jeszcze raz?</span>'
+	}
 	
+	//przegrana
 	
+	if(ile_skuch>=9)
+	{
+		document.getElementById("alfabet").innerHTML = 'Przegrana! haslo to: '+haslo+'</br></br><span class = "reset" onclick = "location.reload()"> Jeszcze raz?</span>'
+	}
 }
